@@ -32,7 +32,7 @@ export class TodoApp extends React.Component {
 
   handleInsertTask(newItem) {
     this.setState((state) => ({
-      tasks: state.tasks.concat(newItem),
+      tasks: state.tasks.sort((x, y) => x.status - y.status).concat(newItem),
       name: ""
     }));
   }
@@ -42,9 +42,9 @@ export class TodoApp extends React.Component {
       return;
     }
     this.setState((state) => ({
-      tasks: state.tasks.map((el) =>
-        el.id === itemId ? { ...el, status: !el.status } : el
-      )
+      tasks: state.tasks
+        .map((el) => (el.id === itemId ? { ...el, status: !el.status } : el))
+        .sort((x, y) => x.status - y.status)
     }));
   }
 
@@ -64,16 +64,15 @@ export class TodoApp extends React.Component {
           items={this.state.tasks}
           handleToggleCompletar={this.handleToggleCompletar}
           handleDelete={this.handleDelete}
-          filterByStatus={false}
         />
 
-        <h3>Completados</h3>
+        {/* <h3>Completados</h3>
         <TodoList
           items={this.state.tasks}
           handleToggleCompletar={this.handleToggleCompletar}
           handleDelete={this.handleDelete}
           filterByStatus={true}
-        />
+        /> */}
 
         <hr />
         <h2>Stats</h2>
