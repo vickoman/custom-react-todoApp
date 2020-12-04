@@ -37,11 +37,14 @@ export class InputTextTask extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="new-todo">¿Qué se necesita hacer?</label>
           <input
+            type="text"
+            className="border text-grey-darkest px-2 py-2 w-80"
             id="new-todo"
             onChange={this.handleChange}
             value={this.props.name}
+            placeholder={this.props.placeholder}
           />
-          <button>Añadir #{this.props.tasks.length + 1}</button>
+          <button className="btn border text-base ml-1 bg-black  text-yellow-200">Añadir #{this.props.tasks.length + 1}</button>
         </form>
       </div>
     );
