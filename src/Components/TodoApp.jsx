@@ -32,7 +32,7 @@ export class TodoApp extends React.Component {
 
   handleInsertTask(newItem) {
     this.setState((state) => ({
-      tasks: state.tasks.sort((x, y) => x.status - y.status).concat(newItem),
+      tasks: state.tasks.concat(newItem).sort((x, y) => x.status - y.status),
       name: ""
     }));
   }
