@@ -3,12 +3,15 @@ import { Chart } from "./Chart";
 import { InputTextTask } from "./InputTextTask";
 import { TodoList } from "./TodoList";
 
-export class TodoApp extends React.Component {
+export class TodoApp extends React.Component {  
   constructor(props) {
     super(props);
     this.state = {
       tasks: [],
-      name: ""
+      name: "",
+      placeholders: {
+        inputTask: "Ingrese el titulo de la tarea"
+      }
     };
     this.handleInsertTask = this.handleInsertTask.bind(this);
     this.onNameChange = this.onNameChange.bind(this);
@@ -57,6 +60,7 @@ export class TodoApp extends React.Component {
           handleInsertTask={this.handleInsertTask}
           name={this.state.name}
           onDeleteTask={this.handleDelete}
+          placeholder={this.state.placeholders.inputTask}
         />
         <hr />
         <h3>Listado</h3>
