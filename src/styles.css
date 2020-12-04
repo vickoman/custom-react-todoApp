@@ -1,0 +1,12 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.imcompleted {
+  color: red;
+}
+
+.completed {
+  color: green;
+  text-decoration: line-through;
+}
