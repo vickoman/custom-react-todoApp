@@ -1,6 +1,6 @@
 import React from "react";
 import { Chart } from "./Chart";
-import { TaskForm } from "./TaskForm";
+import { InputTextTask } from "./InputTextTask";
 import { TodoList } from "./TodoList";
 
 export class TodoApp extends React.Component {
@@ -51,7 +51,7 @@ export class TodoApp extends React.Component {
   render() {
     return (
       <div>
-        <TaskForm
+        <InputTextTask
           tasks={this.state.tasks}
           onNameChange={this.onNameChange}
           handleInsertTask={this.handleInsertTask}

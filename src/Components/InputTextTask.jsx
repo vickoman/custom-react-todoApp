@@ -1,6 +1,6 @@
 import React from "react";
 
-export class TaskForm extends React.Component {
+export class InputTextTask extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
