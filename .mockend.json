@@ -2,7 +2,7 @@
     "List": {
         "name": "String",
         "tasks": "Task[]",
-        "published": "Date",
+        "published": "Date"
     },
     "Task": {
         "title": "String",
