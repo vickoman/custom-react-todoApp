@@ -15,7 +15,7 @@ export class Chart extends React.Component {
       progressValue = percent.toFixed(0);
     }
     return (
-      <div>
+      <div className="mt-1 w-80 border-gray-200 border rounded p-2">
         <Circle progress={progressValue} />
       </div>
     );

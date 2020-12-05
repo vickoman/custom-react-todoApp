@@ -53,7 +53,7 @@ export class TodoApp extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="pl-2">
         <InputTextTask
           tasks={this.state.tasks}
           onNameChange={this.onNameChange}
@@ -61,25 +61,14 @@ export class TodoApp extends React.Component {
           name={this.state.name}
           onDeleteTask={this.handleDelete}
           placeholder={this.state.placeholders.inputTask}
-        />
-        <hr />
-        <h3>Listado</h3>
+        />        
+        <h3 className="text-base font-semibold">Listado</h3>
         <TodoList
           items={this.state.tasks}
           handleToggleCompletar={this.handleToggleCompletar}
           handleDelete={this.handleDelete}
         />
-
-        {/* <h3>Completados</h3>
-        <TodoList
-          items={this.state.tasks}
-          handleToggleCompletar={this.handleToggleCompletar}
-          handleDelete={this.handleDelete}
-          filterByStatus={true}
-        /> */}
-
-        <hr />
-        <h2>Stats</h2>
+        <h2 className="text-base font-semibold">Stats</h2>
         <Chart
           totalTasks={this.state.tasks.length}
           completed={this.state.tasks.filter((t) => t.status === true)}

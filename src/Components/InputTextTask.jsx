@@ -1,3 +1,5 @@
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 export class InputTextTask extends React.Component {
@@ -33,17 +35,19 @@ export class InputTextTask extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='mb-2'>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            className="border text-grey-darkest px-2 py-2 w-80"
+            className=" form-input border border-blue-500 rounded text-grey-darkest px-2 py-2 w-80 "
             id="new-todo"
             onChange={this.handleChange}
             value={this.props.name}
             placeholder={this.props.placeholder}
           />
-          <button className="btn border text-base ml-1 bg-black  text-yellow-200">Añadir #{this.props.tasks.length + 1}</button>
+          <button className="btn border text-base border-blue-500 ml-1 bg-white  text-white font-bold">
+            <FontAwesomeIcon className=" text-blue-500 font-bold" icon={faPlus} />
+          </button>
         </form>
       </div>
     );

@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import React from "react";
 
 export class TodoList extends React.Component {
@@ -8,25 +10,20 @@ export class TodoList extends React.Component {
 
   render() {
     if (this.props.items.length === 0) {
-      return <div>No hay elementos</div>;
+      return <div className="mt-1 mb-1 text-base w-80 italic border-gray-200 border rounded p-2">No hay elementos</div>;
     }
     return (
-      <div>
+      <div className="mt-1 mb-1 w-80 border-gray-200 border rounded p-2">
         <ul>
           {this.props.items.map((item) => (
             <li
-              className={item.status === false ? "incompleted" : "completed"}
+              className={item.status  ? "completed line-through text-gray-50" : "incompleted text-black" }
               key={item.id}
             >
-              {item.title}&nbsp;
-              <button
-                onClick={(e) => this.props.handleToggleCompletar(e, item.id)}
-              >
-                {item.status === false ? "completar" : "mark as incompleted"}
-              </button>
-              <button onClick={(e) => this.props.handleDelete(e, item.id)}>
-                X
-              </button>
+              <label className="inline-flex items-center mt-3">
+                <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-500 border-blue-500 border rounded" onClick={(e) => this.props.handleToggleCompletar(e, item.id)} /><span className="ml-2 text-gray-700">{item.title}</span>
+                <FontAwesomeIcon className="ml-2 text-red-900 cursor-pointer" icon={faTrash} />
+              </label>
             </li>
           ))}
         </ul>
