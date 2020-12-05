@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import React from "react";
+import BoxWithBorderCustom from "./shared/BoxithBorder";
 
 export class TodoList extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export class TodoList extends React.Component {
       return <div className="mt-1 mb-1 text-base w-80 italic border-gray-200 border rounded p-2">No hay elementos</div>;
     }
     return (
-      <div className="mt-1 mb-1 w-80 border-gray-200 border rounded p-2">
+      <BoxWithBorderCustom color='gray'>
         <ul>
           {this.props.items.map((item) => (
             <li
@@ -27,7 +28,7 @@ export class TodoList extends React.Component {
             </li>
           ))}
         </ul>
-      </div>
+      </BoxWithBorderCustom>
     );
   }
 }

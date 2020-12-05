@@ -1,5 +1,6 @@
 import React from "react";
 import Circle from "react-circle";
+import BoxWithBorderCustom from "./shared/BoxithBorder";
 
 export class Chart extends React.Component {
   constructor(props) {
@@ -15,9 +16,10 @@ export class Chart extends React.Component {
       progressValue = percent.toFixed(0);
     }
     return (
-      <div className="mt-1 w-80 border-gray-200 border rounded p-2">
+      <BoxWithBorderCustom color="gray">
         <Circle progress={progressValue} />
-      </div>
+
+      </BoxWithBorderCustom>
     );
   }
 }
