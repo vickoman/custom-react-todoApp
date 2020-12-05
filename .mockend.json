@@ -1,12 +1,12 @@
 {
-    "Post": {
-        "title": "String",
-        "views": "Int",
-        "published": "Boolean",
-        "comments": "Comment[]"
+    "List": {
+        "name": "String",
+        "tasks": "Task[]",
+        "published": "Date",
     },
-    "Comment": {
-        "body": "String",
-        "post": "Post"
+    "Task": {
+        "title": "String",
+        "status": "Boolean",
+        "list": "List"
     }
 }
