@@ -16,10 +16,13 @@ export class Chart extends React.Component {
       progressValue = percent.toFixed(0);
     }
     return (
-      <BoxWithBorderCustom color="gray">
-        <Circle progress={progressValue} />
+      <div>
+        <h2 className="text-base font-semibold">{this.props.boxTitle}</h2>
+        <BoxWithBorderCustom color="gray">
+          <Circle progress={progressValue} />
 
-      </BoxWithBorderCustom>
+        </BoxWithBorderCustom>
+      </div>
     );
   }
 }

@@ -11,10 +11,16 @@ export class TodoList extends React.Component {
 
   render() {
     if (this.props.items.length === 0) {
-      return <div className="mt-1 mb-1 text-base w-80 italic border-gray-200 border rounded p-2">No hay elementos</div>;
+      return (
+        <div>
+          <h3 className="text-base font-semibold">{this.props.boxTitle}</h3>
+          <div className="mt-1 mb-1 text-base w-80 italic border-gray-200 border rounded p-2">No hay elementos</div>
+        </div>
+      );
     }
     return (
       <BoxWithBorderCustom color='gray'>
+        <h3 className="text-base font-semibold">{this.props.boxTitle}</h3>
         <ul>
           {this.props.items.map((item) => (
             <li
