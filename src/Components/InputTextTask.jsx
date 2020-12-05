@@ -35,7 +35,6 @@ export class InputTextTask extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="new-todo">¿Qué se necesita hacer?</label>
           <input
             type="text"
             className="border text-grey-darkest px-2 py-2 w-80"
