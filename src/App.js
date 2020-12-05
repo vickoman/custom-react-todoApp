@@ -1,7 +1,6 @@
 import React from "react";
 import { TodoApp } from "./Components/TodoApp";
 import './assets/main.css';
-import Card from './Components/Card'
 
 export default function App() {
   return (

@@ -10,7 +10,7 @@ export class TodoApp extends React.Component {
       tasks: [],
       name: "",
       placeholders: {
-        inputTask: "Ingrese el titulo de la tarea"
+        inputTask: "Titulo para la tarea"
       }
     };
     this.handleInsertTask = this.handleInsertTask.bind(this);
