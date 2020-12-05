@@ -22,7 +22,7 @@ export class TodoList extends React.Component {
             >
               <label className="inline-flex items-center mt-3">
                 <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-500 border-blue-500 border rounded" onClick={(e) => this.props.handleToggleCompletar(e, item.id)} /><span className="ml-2 text-gray-700">{item.title}</span>
-                <FontAwesomeIcon className="ml-2 text-red-900 cursor-pointer" icon={faTrash} />
+                <FontAwesomeIcon className="ml-2 text-red-900 cursor-pointer" icon={faTrash} onClick={(e) => this.props.handleDelete(e, item.id)} />
               </label>
             </li>
           ))}
