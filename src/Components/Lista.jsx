@@ -6,6 +6,8 @@ const QUERY_LIST = gql`
         lists {
             id
             name
+            created
+            updated
         }
     }
 `;
