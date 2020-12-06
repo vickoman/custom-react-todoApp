@@ -1,8 +1,8 @@
 import React from "react";
-// import { TodoApp } from "./Components/TodoApp";
 import './assets/main.css';
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-// import { Lista } from "./Components/Lista";
+import Routers from './routes';
+
 require('dotenv').config()
 
 const apolloClient = new ApolloClient({
@@ -14,8 +14,8 @@ export default function App() {
   return (
     <ApolloProvider client={apolloClient}>
       <div className="App pt-2">
-        {/* <TodoApp /> */}
-        {/* <Lista /> */}
+
+        <Routers />
       </div>
     </ApolloProvider>
   );
