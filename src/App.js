@@ -13,8 +13,7 @@ const apolloClient = new ApolloClient({
 export default function App() {
   return (
     <ApolloProvider client={apolloClient}>
-      <div className="App pt-2">
-
+      <div className="antialiased font-sans h-scree">
         <Routers />
       </div>
     </ApolloProvider>

@@ -5,7 +5,7 @@ export default ({ children }) => {
     console.log('Auth Layour')
 
     return (
-        <div>
+        <div className="bg-gray-200 h-screen">
             {children}
         </div>
     )
