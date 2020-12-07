@@ -21,9 +21,14 @@ export default () => (
                     </div>
                 </form>
 
-                <div className="text-center mt-6">
-                    <Link className="text-indigo-900 text-base">
+                <div className="text-center mt-4">
+                    <Link className="text-indigo-900 text-sm">
                         Forgot your password?
+                    </Link>
+                </div>
+                <div className="text-center">
+                    <Link className="text-indigo-900 text-sm" to="/auth/register">
+                        Create and account
                     </Link>
                 </div>
             </div>
