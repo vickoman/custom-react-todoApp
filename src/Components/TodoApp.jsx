@@ -1,14 +1,21 @@
 import React from "react";
 import { Chart } from "./Chart";
 import { InputTextTask } from "./InputTextTask";
+import { Lista } from "./Lista";
 import { TodoList } from "./TodoList";
 
-export class TodoApp extends React.Component {
+export class TodoApp extends React.Component {  
   constructor(props) {
     super(props);
     this.state = {
-      tasks: [],
-      name: ""
+      list: {
+        name: "",
+        tasks: [],
+      },
+      name: "",
+      placeholders: {
+        inputTask: "Titulo para la tarea"
+      }
     };
     this.handleInsertTask = this.handleInsertTask.bind(this);
     this.onNameChange = this.onNameChange.bind(this);
@@ -22,7 +29,11 @@ export class TodoApp extends React.Component {
     }
 
     this.setState((state) => ({
-      tasks: state.tasks.filter((el) => el.id !== itemId)
+      ...state,
+      list: {
+        ...state,
+        tasks: state.list.tasks.filter((el) => el.id !== itemId)
+      },
     }));
   }
 
@@ -32,7 +43,11 @@ export class TodoApp extends React.Component {
 
   handleInsertTask(newItem) {
     this.setState((state) => ({
-      tasks: state.tasks.concat(newItem).sort((x, y) => x.status - y.status),
+      ...state,
+      list: {
+        ...state.list,
+        tasks: state.list.tasks.concat(newItem).sort((x, y) => x.status - y.status)
+      },
       name: ""
     }));
   }
@@ -42,43 +57,38 @@ export class TodoApp extends React.Component {
       return;
     }
     this.setState((state) => ({
-      tasks: state.tasks
+      ...state,
+      list: {
+        ...state.list,
+        tasks: state.list.tasks
         .map((el) => (el.id === itemId ? { ...el, status: !el.status } : el))
         .sort((x, y) => x.status - y.status)
+      },
     }));
   }
 
   render() {
     return (
-      <div>
+      <div className="pl-2">
+        <Lista />
         <InputTextTask
-          tasks={this.state.tasks}
+          tasks={this.state.list.tasks}
           onNameChange={this.onNameChange}
           handleInsertTask={this.handleInsertTask}
           name={this.state.name}
           onDeleteTask={this.handleDelete}
+          placeholder={this.state.placeholders.inputTask}
         />
-        <hr />
-        <h3>Listado</h3>
         <TodoList
-          items={this.state.tasks}
+          items={this.state.list.tasks}
           handleToggleCompletar={this.handleToggleCompletar}
           handleDelete={this.handleDelete}
+          boxTitle="List of Tasks"
         />
-
-        {/* <h3>Completados</h3>
-        <TodoList
-          items={this.state.tasks}
-          handleToggleCompletar={this.handleToggleCompletar}
-          handleDelete={this.handleDelete}
-          filterByStatus={true}
-        /> */}
-
-        <hr />
-        <h2>Stats</h2>
         <Chart
-          totalTasks={this.state.tasks.length}
-          completed={this.state.tasks.filter((t) => t.status === true)}
+          totalTasks={this.state.list.tasks.length}
+          completed={this.state.list.tasks.filter((t) => t.status === true)}
+          boxTitle="Stats"
         />
       </div>
     );

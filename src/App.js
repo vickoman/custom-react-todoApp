@@ -1,11 +1,21 @@
 import React from "react";
-import { TodoApp } from "./Components/TodoApp";
-import "./styles.css";
+import './assets/main.css';
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import Routers from './routes';
+
+require('dotenv').config()
+
+const apolloClient = new ApolloClient({
+  uri: process.env.REACT_APP_GRAPHQL_URL,
+  cache: new InMemoryCache()
+});
 
 export default function App() {
   return (
-    <div className="App">
-      <TodoApp />
-    </div>
+    <ApolloProvider client={apolloClient}>
+      <div className="antialiased font-sans h-scree">
+        <Routers />
+      </div>
+    </ApolloProvider>
   );
 }

@@ -1,0 +1,14 @@
+{
+    "List": {
+        "id": "String",
+        "name": "String",
+        "tasks": "Task[]",
+        "published": "Date"
+    },
+    "Task": {
+        "id": "String",
+        "title": "String",
+        "status": "Boolean",
+        "list": "List"
+    }
+}
