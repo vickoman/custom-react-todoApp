@@ -7,7 +7,7 @@ import SingUp from "../pages/SingUp";
 import Home from "../pages/Home";
 
 export const fakeAuth = {
-    signedIn: false
+    signedIn: true
 }
 
 const RequireAuth = ({ children }) => {

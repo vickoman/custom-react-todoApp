@@ -22,7 +22,7 @@ export default () => (
                 </form>
 
                 <div className="text-center mt-4">
-                    <Link className="text-indigo-900 text-sm">
+                    <Link className="text-indigo-900 text-sm" to="">
                         Forgot your password?
                     </Link>
                 </div>
