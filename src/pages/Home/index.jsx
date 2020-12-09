@@ -49,6 +49,15 @@ export default () => (
                     </ul>
                 </div>
 
+                <div className="mt-8 px-4">
+                    <h3 className="font-medium text-2xl text-black">Tags</h3>
+                    <div className="flex">
+                        <span className="bg-gray-300 text-red-800 font-semibold text-xs py-1 px-2 rounded">#Urgente</span>
+                        <span className="bg-gray-300 text-green-800 font-semibold text-xs py-1 px-2 rounded ml-1">#Suave</span>
+                        <span className="bg-gray-300 text-indigo-800 font-semibold text-xs py-1 px-2 rounded ml-1">#NoImportant</span>
+                    </div>
+                </div>
+
             </aside>
             <section className="bg-indigo-900 w-5/6">
             </section>
