@@ -17,3 +17,11 @@
 .card {
     @apply rounded overflow-hidden shadow-lg;
 }
+
+.item-lista {
+    @apply font-normal text-base mt-4;
+}
+
+.sidebar-title {
+    @apply font-medium text-2xl text-black;
+}
