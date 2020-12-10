@@ -1,24 +1,41 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { Link } from 'react-router-dom'
-import ListRaw from '../../Components/shared/List'
+import { gql, useQuery } from "@apollo/client";
+import HomeBox from '../../Components/shared/HomeBox';
+import ListRaw from '../../Components/shared/List';
+import UserInfo from '../../Components/UserInfo';
 
-export default () => (
+const QUERY_LIST = gql`
+    query QUERY_LIST{
+        lists {
+            id
+            name
+            comments {
+                id
+                comment
+            }
+            author {
+                id
+            }
+            created
+            updated
+        }
+    }
+`;
+
+const userInfo = {
+    username: "vickoman",
+    firstName: "Victor",
+    lastName: "De La Gasca"
+};
+
+const Home  = (props) => {
+    const { loading, error, data } = useQuery(QUERY_LIST);
+    return (
         <div className="flex flex-row overflow-hidden h-screen">
             <aside className="bg-gray-100 w-1/6 ">
-                {/* Avatar */}
-                <div className="flex p-5">
-                    <img className="w-16 rounded-full" src="https://anydo-profile-pictures.s3.amazonaws.com/3affc658-79de-497d-a2a3-b5d091f4dec9" alt="Vcitor Diaz"/>
-                    <figcaption className="font-medium ml-2 pt-2">
-                        <div className="text-indigo-900 font-semibold">
-                            Victor Diaz D.
-                        </div>
-                        <div className="text-gray-500  font-light">
-                            vickoman  <Link to="/auth/login" className="text-base text-indigo-600">[ Logout ]</Link>
-                        </div>
-                    </figcaption>
-                </div>
+                <UserInfo data={userInfo} />
 
                 <div className="text-center mt-4 px-4">
                     <button className="bg-indigo-800 py-2 px-16 rounded-2xl text-white font-light">
@@ -26,8 +43,7 @@ export default () => (
                     </button>
                 </div>
 
-                <div className="mt-8 px-4">
-                    <h3 className="sidebar-title">Quick Filter</h3>
+                <HomeBox title="Quick Filter">
                     <ul>
                         <li className="font-normal text-base mt-4">
                             Today <span className="bg-gray-200 rounded-full p-1 ml-1 text-xs text-gray-600 font-semibold">45</span>
@@ -36,15 +52,14 @@ export default () => (
                             Incoming <span className="bg-gray-200 rounded-full p-1 ml-1 text-xs text-gray-600 font-semibold">100</span>
                         </li>
                     </ul>
-                </div>
-
-                <div className="mt-8 px-4">
-                    <h3 className="sidebar-title">Lists</h3>
-                    <ListRaw />
-                </div>
-
+                </HomeBox>
+                <HomeBox title="Lists">
+                    <ListRaw data={data} loading={loading} error={error} />
+                </HomeBox>
             </aside>
             <section className="bg-indigo-900 w-5/6">
             </section>
         </div>
-)
+    );
+}
+export default Home;
