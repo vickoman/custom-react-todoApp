@@ -1,35 +1,17 @@
 import React from "react";
-import { gql, useQuery } from "@apollo/client";
-
-const QUERY_LIST = gql`
-    query QUERY_LIST{
-        lists {
-            id
-            name
-            comments {
-                id
-                comment
-            }
-            author {
-                id
-            }
-            created
-            updated
-        }
-    }
-`;
 
 const ListRaw = (props) => {
-    const {loading, error, data} = useQuery(QUERY_LIST);
+    const {loading, error, data} = props;
     if (loading) return <p>Loading...</p>
-    if (error) return <p>{error.message}</p>
+    if (error) return <p className="text-xs text-red-800">{error.message}</p>
     return (
         <ul>
             {data.lists.map((list) => (
-                <li 
-                    className="item-lista">
+                <li
+                    className="item-lista"
+                    key={list.id}>
                     {list.name}
-            <span className="bg-gray-200 rounded-full p-1 ml-1 text-xs text-gray-600 font-semibold">{list.comments.length}</span>
+                        <span  className="bg-gray-200 rounded-full p-1 ml-1 text-xs text-gray-600 font-semibold">{list.comments.length}</span>
                 </li>
             ))}
         </ul>
