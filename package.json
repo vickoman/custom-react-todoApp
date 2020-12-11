@@ -16,6 +16,7 @@
     "alpinejs": "^2.7.3",
     "autoprefixer": "^10.0.4",
     "dotenv": "^8.2.0",
+    "formik": "^2.2.6",
     "graphql": "^15.4.0",
     "postcss": "^8.1.14",
     "react": "17.0.0",
