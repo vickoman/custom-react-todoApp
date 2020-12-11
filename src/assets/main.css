@@ -31401,6 +31401,42 @@ video {
   color: rgba(0, 0, 0, var(--tw-text-opacity));
 }
 
+.input-auth-form {
+  --tw-border-opacity: 1;
+  border-color: rgba(165, 180, 252, var(--tw-border-opacity));
+  border-radius: 0.25rem;
+  border-width: 1px;
+  flex-grow: 1;
+  height: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  --tw-text-opacity: 1;
+  color: rgba(49, 46, 129, var(--tw-text-opacity))
+}
+
+.btn-auth-action {
+  --tw-bg-opacity: 1;
+  background-color: rgba(99, 102, 241, var(--tw-bg-opacity))
+}
+
+.btn-auth-action:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(55, 48, 163, var(--tw-bg-opacity));
+}
+
+.btn-auth-action {
+  border-radius: 0.25rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

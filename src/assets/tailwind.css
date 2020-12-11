@@ -25,3 +25,11 @@
 .sidebar-title {
     @apply font-medium text-2xl text-black;
 }
+
+.input-auth-form {
+    @apply flex-grow h-12 px-4 border rounded border-indigo-300 text-indigo-900
+}
+
+.btn-auth-action {
+    @apply bg-indigo-500 hover:bg-indigo-800 text-white text-sm font-semibold py-4 px-4 rounded
+}
