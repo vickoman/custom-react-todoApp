@@ -15,7 +15,7 @@ export default () => (
                         <input type="password" className="flex-grow h-12 px-4 border rounded border-indigo-300 text-indigo-900" name="password" placeholder="Type your password:" />
                     </div>
                     <div className="flex flex-col mt-8">
-                        <button className="bg-indigo-500 hover:bg-indigo-800 text-white text-sm font-semibold py-4 px-4 rounded">
+                        <button className="btn-auth-action">
                             Login
                         </button>
                     </div>
