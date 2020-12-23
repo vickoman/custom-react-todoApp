@@ -1,16 +1,34 @@
+import { useApolloClient } from "@apollo/client";
 import {  useFormik } from "formik";
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { loginUser } from "./mutation";
 
 export default () => {
+    const apolloClient = useApolloClient();
+
+    const authenticateUser = async ({email, password}) => {
+        console.log(email);
+        const result = await apolloClient.mutate({
+            mutation: loginUser,
+            variables: {
+                UserLoginInput: {
+                    email,
+                    password
+                }
+            }
+        });
+        return result.data;
+    };
+
     const formik = useFormik({
         initialValues: {
             email: "",
             password: ""
         },
-        onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+        onSubmit: async (values) => {
+            await authenticateUser(values)
+
         }
     })
     return (
